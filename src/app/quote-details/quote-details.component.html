@@ -1,0 +1,12 @@
+<div class="">
+  <ul class="list">
+    <li class="list-unstyled">Author name: {{quote.authorName}}</li>
+    <li class="list-unstyled">Posted by: {{quote.userName}}</li>
+    <li class="list-unstyled">Posted: {{quote.date|date:'medium' |timeAgo }}</li>
+    <li class="list-unstyled">Upvotes: {{quote.upVote}}</li>
+    <li class="list-unstyled">Downvotes: {{quote.downVote}}</li>
+  </ul>
+<div class="vote">
+    <button (click)='upVotes(true)' type="button" class="btn btn-primary btn-outline-success">👍</button>  {{quote.upVote}} upVotes   <button (click)='downVotes(true)' type="button" class="btn btn-primary btn-outline-danger">👎</button>  {{quote.downVote}} downVotes
+</div>
+</div>

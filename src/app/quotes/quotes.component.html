@@ -1,0 +1,31 @@
+<div class="">
+  <div class="head">
+    <h1>Get Your Awesome Quote!</h1>
+    <hr>
+  </div>
+  <div class="body container">
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngFor = "let quote of quotes; let i = index;">
+          <div class="card">
+            <div  class="container">
+              <div style=" padding-top:20px; padding-bottom:10px; color:red; font-family:fantasy;" class="">
+                <h5 appHighlight *ngIf = "highlightFunc(i) === quote.upVote && quote.upVote > 0 ">“{{quote.quoteValue}}”</h5>
+                <h5 *ngIf = "highlightFunc(i) !== quote.upVote || quote.upVote === 0 ">“{{quote.quoteValue}}”</h5>
+              </div>
+              <div  *ngIf = 'quote.showQuoteDetails'>
+                <app-quote-details [quote]='quote' (upVoting)='addUpVote($event, i)' (downVoting)='addDownVote($event, i)'></app-quote-details>
+              </div>
+            </div>
+          </div>
+          <div class="button">
+            <button (click)='toggler(i)' type="button" class="btn btn-primary" name="button">Toggle Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="form1 col-md-6">
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+      </div>
+    </div>
+  </div>
+</div>
